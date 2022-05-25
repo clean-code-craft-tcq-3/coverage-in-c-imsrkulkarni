@@ -1,4 +1,7 @@
 #include "typewise-alert.h"
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
 
 char* messageMail = "";
 mailAlert mailInfo [] = {{"Hi, the temperature is too low\n"},{"Hi, the temperature is too high\n"}};
