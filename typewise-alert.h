@@ -25,8 +25,26 @@ typedef struct {
   char brand[48];
 } BatteryCharacter;
 
-void checkAndAlert(
-  AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
+typedef struct
+{
+  int statusLowLimit;
+  int statusHighLimit;
+  int statusNormal;
+} breachStatus;
 
-void sendToController(BreachType breachType);
-void sendToEmail(BreachType breachType);
+typedef struct
+{
+  CoolingType userCoolerTypeInput ;
+  double lowerLimit ;
+  double higherLimit ;
+} coolingTypeProperties;
+
+void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
+BreachType classifyTemperatureBreach(CoolingType coolingtype, double temperatureInC);
+status sendToController(BreachType breachType);
+status sendToEmail(BreachType breachType);
+BreachType inferBreach(double value, double lowerLimit, double upperLimit);
+
+int checkValueInUpperLimit(int value, double upperLimit);
+int checkValueInLowerLimit(int value, double lowerLimit);
+void displayOnConsole(char message[100]);
