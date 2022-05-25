@@ -50,6 +50,10 @@ typedef struct
   double higherLimit ;
 } coolingTypeProperties;
 
+typedef struct 
+{
+  char mailAlertMessage[100];
+}mailAlert;
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
 BreachType classifyTemperatureBreach(CoolingType coolingtype, double temperatureInC);
 status sendToController(BreachType breachType);
