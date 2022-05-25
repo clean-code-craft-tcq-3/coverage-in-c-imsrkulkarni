@@ -32,6 +32,17 @@ typedef struct
   int statusNormal;
 } breachStatus;
 
+typedef enum{
+  E_OK,
+  E_NOT_OK
+}status;
+
+typedef struct 
+{
+  status statusSendToEmail;
+  status statusSendToController;
+}statusLog;
+
 typedef struct
 {
   CoolingType userCoolerTypeInput ;
